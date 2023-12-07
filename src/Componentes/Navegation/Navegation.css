@@ -15,23 +15,7 @@
 
 
 
-    .botao{
-
-        color: #becac5;
-    background-color: #e272aa;
-    border-radius: 15px;
-    font-weight: 700;
-    font-size: 18px;
-    padding: 25px;
-    border: none;
-    cursor: pointer;
-    color: #ffffff;
-    margin: 30px 0;
-    width: 20%;
-    text-align: center;
-    margin-right: auto;
-    list-style-type: none;
-    }
+   
 
     ul li {
 
