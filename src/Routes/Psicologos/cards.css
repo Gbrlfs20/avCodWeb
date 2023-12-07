@@ -1,0 +1,14 @@
+
+
+.card {
+
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 25px;
+    border: none;
+    cursor: pointer;
+    
+    margin: 30px 0;
+    width: 50%;
+}
