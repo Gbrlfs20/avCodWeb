@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import CampoTexto from '../CampoTexto'; // Importe o componente CampoTexto
-import './FormComp.css'; // Importe os estilos CSS necessários
-import ListaSuspensa from './ListaSuspensa'; // Importe o componente ListaSuspensa
+import CampoTexto from '../CampoTexto'; 
+import './FormComp.css'; 
+import ListaSuspensa from './ListaSuspensa'; 
 import Botao from '../Botao/botao';
 import { createUser } from '../services/userServices';
 
@@ -27,7 +27,12 @@ const FormComp = () => {
       };
 
       const resposta = await createUser(dadosFormulario);
-      console.log('Resposta da API:', resposta.data);
+      console.log('Resposta da API:', resposta);
+      setNome('')
+      setEmail('')
+      setCpf('')
+      setCep('')
+      setUniversidade('')
     } catch (erro) {
       console.error('Erro ao enviar dados:', erro);
     }
@@ -40,14 +45,14 @@ const FormComp = () => {
 
   return (
     <section className='formulario'>
-      <form>
+      <form onSubmit={handleClick}>
         <h2>Informe os dados para se cadastrar:</h2>
-        <CampoTexto label='Nome' value={nome} onChange={(e) => setNome(e.target.value)} placeholder='Informe seu nome' />
-        <CampoTexto label='Email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Informe seu email' />
-        <CampoTexto label='CPF' value={CPF} onChange={(e) => setCpf(e.target.value)} placeholder='Informe seu CPF' />
-        <CampoTexto label='CEP' value={CEP} onChange={(e) => setCep(e.target.value)} placeholder='Informe seu CEP' />
+        <CampoTexto label='Nome' name="nome" value={nome} onChange={(e) => setNome(e.target.value)} placeholder='Informe seu nome' />
+        <CampoTexto label='Email' name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Informe seu email' />
+        <CampoTexto label='CPF' name="CPF" value={CPF} onChange={(e) => setCpf(e.target.value)} placeholder='Informe seu CPF' />
+        <CampoTexto label='CEP' name="CEP"value={CEP} onChange={(e) => setCep(e.target.value)} placeholder='Informe seu CEP' />
         <ListaSuspensa label='Selecione a Universidade' value={universidade} onChange={(e) => setUniversidade(e.target.value)} itens={universidades} />
-        <Botao type='submit' onClick={handleClick}>
+        <Botao type='submit' >
           Cadastrar
         </Botao>
       </form>
@@ -55,4 +60,4 @@ const FormComp = () => {
   );
 };
 
-export default FormComp;
+export default FormComp;
